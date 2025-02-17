@@ -29,4 +29,23 @@ void main(){
       }
       print('The student score is $score, and his/her grade is $grade');
 
+      //Minimum of two numbers
+      print('Let\'s check which number is smaller...')
+      stdout.write('Please enter a number: ');
+      Stirng firstInput = stdin.readLineSync()!;
+      stdout.write('Now enter another number: ');
+      String secondInput = stdin.readLineSync()!;
+      int num1 = int.parse(firstInput);
+      int num2 = int.parse(secondInput);
+
+      if (num1 > num2) {
+        print('$num2 is smaller than $num1');
+      } else if (num2 > num1) {
+        print ('$num1 is smaller than $num2');
+      }else {
+        print('The numbers are equal!');
+      }
+
+
+
 }
