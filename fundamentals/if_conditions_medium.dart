@@ -2,7 +2,9 @@ import 'dart:io';
 
 void main() {
   // triangleChecker();
-  print(speedCalculator());
+  // print(speedCalculator());
+  print(withdraw(1200));
+
   
 }
 //Triangle Validity
@@ -42,5 +44,22 @@ String speedCalculator() {
       }
     }else{
       return 'Your speed is normal.';
+    }
+}
+
+//ATM withdrawal
+String withdraw(int accountBalance){
+  stdout.write('Enter withdraw amount: ');
+  String input = stdin.readLineSync()!;
+  int amount = int.parse(input);
+
+    if(amount <= accountBalance){
+      if(amount % 10 == 0){
+        return 'You successfuly withdrew $amount USD';
+      }else {
+        return 'You are not allowed to withdrew $amount, the withdrawal amount should be a multiple of 10!';
+    }
+    }else{
+      return 'Your balance is insufficient!';
     }
 }
