@@ -1,7 +1,9 @@
 import 'dart:io';
 void main(){
   // print(BMIcalculator());
-  print(billCalcualtor());
+  // print(billCalcualtor());
+  print('Is your password strength? ${passwordStrengthChecker()}');
+  
   
 }
 //Body mass index (BMI) calculator
@@ -45,8 +47,16 @@ String billCalcualtor(){
     }else if(units > 500){
       billAmount = units * 1.5;
     }
-    return 'Your bill amount is: \$$billAmount'!;
+    return 'Your bill amount is: \$$billAmount';
   }else{
     return 'Your input must be above ZERO!';
   }
+}
+
+//Password Strength Checker
+bool passwordStrengthChecker(){
+  stdout.write('Please enter your password for checking it\'s strength: ');
+  String password = stdin.readLineSync()!;
+  final regex = RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)');
+  return regex.hasMatch(password);
 }
