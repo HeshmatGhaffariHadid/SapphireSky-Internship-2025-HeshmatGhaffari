@@ -1,6 +1,7 @@
 import 'dart:io';
 void main(){
-  print(BMIcalculator());
+  // print(BMIcalculator());
+  print(billCalcualtor());
   
 }
 //Body mass index (BMI) calculator
@@ -26,4 +27,26 @@ String BMIcalculator(){
     }else{
       return 'your input is invalid!';
     }
+}
+//Electricity Bill Calculator
+String billCalcualtor(){
+  double? billAmount;
+  stdout.write('Enter your consumed units: ');
+  String input = stdin.readLineSync()!;
+  int units = int.parse(input);
+
+  if(units > 0){
+    if(units <= 100){
+      billAmount = units * 0.5;
+    }else if(units <= 200){
+      billAmount = units * 0.75;
+    }else if(units <= 500){
+      billAmount = units * 1.2;
+    }else if(units > 500){
+      billAmount = units * 1.5;
+    }
+    return 'Your bill amount is: \$$billAmount'!;
+  }else{
+    return 'Your input must be above ZERO!';
+  }
 }
