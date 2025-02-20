@@ -3,7 +3,8 @@ void main (){
   // printUpTo100();
   // print(sumNuturalNumber(3));
   // multiplicationTable();
-  print(reverseNumber(1234));
+  // print(reverseNumber(1234));
+  print(digitCounter(11));
 
    
 }
@@ -31,9 +32,18 @@ void multiplicationTable(){
 int reverseNumber(int number){
   int reversedNum = 0;
 while(number > 0){
-  int digits = number % 10;
-  reversedNum = reversedNum * 10 + digits;
+  int digit = number % 10;
+  reversedNum = reversedNum * 10 + digit;
   number ~/= 10;
 }
 return reversedNum;
+}
+//Count digits in a number
+int digitCounter(int number){
+  int counter = 0;
+  while (number > 0){
+    counter ++;
+    number  ~/= 10;
+  }
+  return counter;
 }
