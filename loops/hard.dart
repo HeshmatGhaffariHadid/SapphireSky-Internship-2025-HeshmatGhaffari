@@ -1,5 +1,6 @@
 void main() {
-  checkArmstrongNumber(153);
+  // checkArmstrongNumber(153);
+  findCollatzSequence(3);
 }
 
 //Armstrong Number
@@ -26,6 +27,20 @@ void checkArmstrongNumber(int input) {
     print('$number is an Armstrong number');
   }else{
     print('$number is not an Armstrong number!');
+  } 
+}
+
+//Collatz Sequence (Hsilstone numbers)
+void findCollatzSequence(int number){
+  int counter = 0;
+
+  while(number > 1){
+  if(number % 2 == 0){
+    number ~/= 2;
+  }else if (number % 2 != 0){
+    number = (number * 3) + 1;
   }
-  
+  counter++;
+  }
+  print('$counter steps to reach 1');
 }
