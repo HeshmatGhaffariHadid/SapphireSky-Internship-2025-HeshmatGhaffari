@@ -2,7 +2,9 @@ import 'dart:io';
 void main (){
   // printUpTo100();
   // print(sumNuturalNumber(3));
-  multiplicationTable();
+  // multiplicationTable();
+  print(reverseNumber(1234));
+
    
 }
 //print 1 to 100
@@ -24,4 +26,14 @@ void multiplicationTable(){
     for(int i = 1; i <= 10; i++){
       print('$i * $number: ${number * i}');
     }
+}
+//Reverse a number
+int reverseNumber(int number){
+  int reversedNum = 0;
+while(number > 0){
+  int digits = number % 10;
+  reversedNum = reversedNum * 10 + digits;
+  number ~/= 10;
+}
+return reversedNum;
 }
