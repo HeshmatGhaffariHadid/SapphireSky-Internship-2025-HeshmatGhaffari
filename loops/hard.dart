@@ -1,5 +1,5 @@
 void main() {
-  checkArmstrongNumber(151);
+  checkArmstrongNumber(153);
 }
 
 //Armstrong Number
@@ -22,6 +22,10 @@ void checkArmstrongNumber(int input) {
     total += power;
     input ~/= 10;
   }
-  print(total == number);
-  print(total);
+  if(number == total){
+    print('$number is an Armstrong number');
+  }else{
+    print('$number is not an Armstrong number!');
+  }
+  
 }
