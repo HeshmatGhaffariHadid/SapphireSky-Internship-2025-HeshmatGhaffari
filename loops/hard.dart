@@ -1,9 +1,11 @@
 import 'dart:io';
+import 'dart:math';
 
 void main() {
   // checkArmstrongNumber(153);
   // findCollatzSequence(3);
-  printPyramid();
+  // printPyramid();
+  guessNumber();
 }
 
 //Armstrong Number
@@ -61,9 +63,28 @@ void printPyramid() {
     for (int j = 3; j >= i; j--) {
       stdout.write(' ');
     }
-    for (int k = 0; k < (i*2)-1; k++) {
+    for (int k = 0; k < (i * 2) - 1; k++) {
       stdout.write('*');
     }
     print('');
+  }
+}
+
+//Number guessing game
+void guessNumber() {
+  Random random = Random();
+  int randomNumber = random.nextInt(100) + 1;
+  stdout.write('Guess the answer between 1 to 100: ');
+  while (true) {
+    String input = stdin.readLineSync()!;
+    int userGuess = int.parse(input);
+    if (userGuess > randomNumber) {
+      print('Too high');
+    } else if (userGuess < randomNumber) {
+      print('Too low');
+    } else {
+      print('Congratulation you find the answer which was $randomNumber');
+      break;
+    }
   }
 }
