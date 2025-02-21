@@ -1,6 +1,9 @@
+import 'dart:io';
+
 void main() {
   // checkArmstrongNumber(153);
-  findCollatzSequence(3);
+  // findCollatzSequence(3);
+  printPyramid();
 }
 
 //Armstrong Number
@@ -23,24 +26,44 @@ void checkArmstrongNumber(int input) {
     total += power;
     input ~/= 10;
   }
-  if(number == total){
+  if (number == total) {
     print('$number is an Armstrong number');
-  }else{
+  } else {
     print('$number is not an Armstrong number!');
-  } 
+  }
 }
 
 //Collatz Sequence (Hsilstone numbers)
-void findCollatzSequence(int number){
+void findCollatzSequence(int number) {
   int counter = 0;
-
-  while(number > 1){
-  if(number % 2 == 0){
-    number ~/= 2;
-  }else if (number % 2 != 0){
-    number = (number * 3) + 1;
-  }
-  counter++;
+  if (number <= 1) {
+    print('Please enter a number greater than 1!');
+  } else {
+    while (number > 1) {
+      if (number % 2 == 0) {
+        number ~/= 2;
+      } else if (number % 2 != 0) {
+        number = (number * 3) + 1;
+      }
+      counter++;
+    }
   }
   print('$counter steps to reach 1');
+}
+
+//Find GCD (greatest common divisor)
+// int findGCD(int num1, int num2) {
+// }
+
+//Pattern printing (Pyramid)
+void printPyramid() {
+  for (int i = 1; i <= 4; i++) {
+    for (int j = 3; j >= i; j--) {
+      stdout.write(' ');
+    }
+    for (int k = 0; k < (i*2)-1; k++) {
+      stdout.write('*');
+    }
+    print('');
+  }
 }
