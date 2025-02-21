@@ -4,7 +4,8 @@ void main() {
   // celsiusToFahrenheit(30.7);
   // maxOfThree(12, 18, 2129);
   // print(isEven(12));
- print(countVowels('Hello world'));
+  // print(countVowels('Hello world'));
+  print(reverseString('Hello'));
 }
 
 //Convert Celsius to Fahrenheit
@@ -48,4 +49,13 @@ int countVowels(String input) {
     }
   }
   return counter;
+}
+
+//Reverse a String
+String reverseString(String input) {
+  String reversed = '';
+  for (int i = input.length - 1; i >= 0; i--) {
+    reversed += input[i];
+  }
+  return reversed;
 }
