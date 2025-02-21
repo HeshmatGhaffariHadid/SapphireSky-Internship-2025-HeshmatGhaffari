@@ -2,7 +2,8 @@ import 'dart:io';
 
 void main() {
     // celsiusToFahrenheit(30.7);
-    maxOfThree(12, 18, 1200);
+    // maxOfThree(12, 18, 2129);
+    // print(isEven(12));
     
 }
 
@@ -21,4 +22,11 @@ void maxOfThree (int a, int b, int c) {
     }else{
         print('The maximum number is: $c');
     }
+}
+//Check Even or Odd
+bool isEven(int number) {
+    if(number % 2 == 0){
+        return true;
+    }
+    return false;
 }
