@@ -1,13 +1,21 @@
 void main() {
-  isPrime(53);
+  // print(isPrime(53));
+  print(factorial(3));
 }
 //Check if a Number is Prime
-void isPrime(int number) {
+bool isPrime(int number) {
   bool result = true;
   for (int i = 2; i < number; i++) {
     if (number % i == 0) result = false;
   }
-  result
-      ? print('$number is a prime number')
-      : print('$number is not a prime number');
+  return result;
+}
+
+//Calculate Factorial Using Recursion
+int factorial(int number) {
+  if(number == 1 || number == 0){
+    return 1;
+  }else{
+    return number * factorial(number -1);
+  }
 }
