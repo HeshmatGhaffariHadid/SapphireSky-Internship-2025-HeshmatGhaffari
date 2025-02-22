@@ -5,7 +5,7 @@ void main() {
   // maxOfThree(12, 18, 2129);
   // print(isEven(12));
   // print(countVowels('Hello world'));
-  print(reverseString('Hello'));
+  print(reverseString('Hello world'));
 }
 
 //Convert Celsius to Fahrenheit
