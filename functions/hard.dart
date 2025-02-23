@@ -1,10 +1,13 @@
 import 'dart:io';
 import '../fundamentals/basic_programs.dart';
+import 'easy.dart';
 
 void main() {
 // pascalTriangle(4);
-List<int> list = [1,2,3,4,5,6,7,8,9,10,12,17];
-print(binarySearch(list,12));
+// List<int> list = [1,2,3,4,5,6,7,8,9,10,12,17];
+// print('The index of targeted number in the array is: ${binarySearch(list,12)}');
+decimalToBinary(4);
+
 }
 
 //Generate Pascal’s Triangle 
@@ -28,7 +31,7 @@ void pascalTriangle(int rows) {
 int binarySearch(List<int> list, int target) {
   int end = list.length -1;
   int middle = (list.length / 2).round();
-  
+
   while(list[middle] != target) {
     if(list[middle] > target){
         middle ~/= 2;
@@ -37,4 +40,16 @@ int binarySearch(List<int> list, int target) {
     }
   }
   return middle;
+}
+
+//Convert Decimal to Binary
+void decimalToBinary(int num) {
+  int number = num;
+  String result = '';
+
+  while (num > 0) {
+    result += (num % 2).toString();
+    num ~/= 2;
+  }
+  print('The binary of $number is: ${reverseString(result)}');
 }
