@@ -1,13 +1,30 @@
+import 'dart:async';
 import 'dart:io';
 import 'dart:math';
 
 void main() {
-  print(findWinner('paper'));
+  // print(findWinner('paper'));
+  print(printStudentGrade(154));
 }
 
 //Student Grade System
-void printStudentGrade(int score) {
-  switch (score) {}
+String printStudentGrade(int score) {
+  if(score <=100 && score >=0){
+  switch (score) {
+    case >= 90 && <=100:
+      return 'A';
+    case >= 80:
+      return 'B';
+    case >= 70:
+      return 'C';
+    case >= 60:
+      return 'D';
+      default:
+      return 'F';
+  }
+  }else{
+    return 'Invalid input';
+  }
 }
 
 //Currency Converter
