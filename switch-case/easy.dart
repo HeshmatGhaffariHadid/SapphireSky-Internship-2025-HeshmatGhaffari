@@ -2,6 +2,7 @@ void main() {
   // print(printDay(7));
   // print(calculator(12, 9, '*'));
   // trafficSystem('RED');
+  // printMonth(12);
 }
 
 //Day of the Week
@@ -65,5 +66,47 @@ void trafficSystem(String lightColor) {
     case 'green':
       print('Go');
       break;
+  }
+}
+
+//Month Name and Days
+void printMonth(int num) {
+  switch (num) {
+    case 1:
+    print('It is January that has 31 days');
+    break;
+    case 2:
+    print('It is February that has 28 days');
+    break;
+    case 3:
+    print('It is March that has 31 days');
+    break;
+    case 4:
+    print('It is April that has 30 days');
+    break;
+    case 5:
+    print('It is May that has 31 days');
+    break;
+    case 6:
+    print('It is June that has 30 days');
+    break;
+    case 7:
+    print('It is July that has 31 days');
+    break;
+    case 8:
+    print('It is Agust that has 31 days');
+    break;
+    case 9:
+    print('It is September that has 30 days');
+    break;
+    case 10:
+    print('It is October that has 31 days');
+    break;
+    case 11:
+    print('It is November that has 30 days');
+    break;
+    case 12:
+    print('It is December that has 31 days');
+    break;
   }
 }
