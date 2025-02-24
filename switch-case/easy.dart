@@ -1,7 +1,7 @@
 void main() {
   // print(printDay(7));
   // print(calculator(12, 9, '*'));
-
+  // trafficSystem('RED');
 }
 
 //Day of the Week
@@ -53,3 +53,17 @@ int calculator(int a, int b, String operator) {
   return result!;
 }
 
+//Traffic Light System
+void trafficSystem(String lightColor) {
+  switch (lightColor.toLowerCase()) {
+    case 'red':
+      print('Stop');
+      break;
+    case 'yellow':
+      print('Slow down');
+      break;
+    case 'green':
+      print('Go');
+      break;
+  }
+}
