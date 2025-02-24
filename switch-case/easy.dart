@@ -1,4 +1,8 @@
-void main() {}
+void main() {
+  // print(printDay(7));
+  // print(calculator(12, 9, '*'));
+
+}
 
 //Day of the Week
 String printDay(int num) {
@@ -24,6 +28,26 @@ String printDay(int num) {
       break;
     case 7:
       result = 'Friday';
+      break;
+  }
+  return result!;
+}
+
+//Simple Calculator
+int calculator(int a, int b, String operator) {
+  int? result;
+  switch (operator) {
+    case '+':
+      result = a + b;
+      break;
+    case '-':
+      result = a - b;
+      break;
+    case '*':
+      result = a * b;
+      break;
+    case '/':
+      result = a ~/ b;
       break;
   }
   return result!;
