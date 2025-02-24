@@ -1,5 +1,6 @@
+import 'dart:io';
+
 void main () {
-  convetCurrency('inr');
 
 }
 //Student Grade System
@@ -23,5 +24,21 @@ void convetCurrency(String currency) {
     case 'JPY':
     print('1 $currency = 0.45$base');
     break;
+  }
+}
+//Menu-Based ATM System
+void useATMsystem(int input) {
+  switch (input) {
+    case 1:
+    print('Check balance method is called');
+    break;
+    case 2:
+    print('Withdraw some money');
+    break;
+    case 3:
+    print('Deposite some money');
+    break;
+    case 4:
+    exit(0);
   }
 }
