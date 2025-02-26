@@ -5,7 +5,7 @@ import '../switch-case/hard.dart';
 void main() {
   findPrime();
 }
-// Print Prime numbers from 1 - 100
+//1- Print Prime numbers from 1 - 100
 void findPrime() {
   List primeNums = [];
   bool isPrime;
