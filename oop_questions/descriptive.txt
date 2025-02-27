@@ -9,3 +9,10 @@ not support constructor overloading instead it supports named constructors.
 5- Explain prototype-based inheritance in JavaScript.
 answer: Dart language does not use prototype-base inheritance!
 
+6- How do you create a private property in a Dart class?
+in Dart we start the property name with (_) underScore to create a private property.
+
+7- What is method overriding, and how can it be implemented in Dart?
+Method overriding is a feature of polymorphism in Dart, it allows a subclass to provide specific 
+implementation of a method which is defined in superclass. To override a method just write the
+method signature as in the supercalss and provide diferent body for it.
