@@ -4,4 +4,8 @@ answere: The four pillars of OOP are: inheritance, encapsulation, polymorphism a
 3- How do JavaScript classes differ from traditional classes in languages like Java or C++?
 answer: in Dart there is not public, private and protected keywords, therefore all calss elemnts
 are public, however if you start an element with (_) it is considered as private. Dart language does
-not support constructor overloading instead it supports named constructors.  
+not support constructor overloading instead it supports named constructors. 
+
+5- Explain prototype-based inheritance in JavaScript.
+answer: Dart language does not use prototype-base inheritance!
+
