@@ -16,3 +16,18 @@ in Dart we start the property name with (_) underScore to create a private prope
 Method overriding is a feature of polymorphism in Dart, it allows a subclass to provide specific 
 implementation of a method which is defined in superclass. To override a method just write the
 method signature as in the supercalss and provide diferent body for it.
+
+9- What is the purpose of super() in Dart classes?
+super() is used to refer the superclass of a subclass, it is used to access the superclass properties,
+constructor and methods.
+
+10- Explain the difference between composition and inheritance in Dart.
+Inheritance and Composition are two different concepts in programming, and each of them has it's 
+own advantages.
+
+- Inheritance: we use it when:
+    . A subclass inherites a supercalss properties and behaviors, that show is-a relationship.
+    . we need to override the functioanlity
+    . we wanna create a hierarchical structure.
+- Composition: we use it when:
+    . when an object is made of multiple components, that shows has-a relationship.
