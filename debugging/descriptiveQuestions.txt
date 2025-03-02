@@ -19,3 +19,13 @@ We use try...catch to handle runtime exections that occures during the program e
 program is running without try..catch blocks it crash when an error is found, but if you use try and
 catch blocks in the the program the program does not crash and continue to running even it face an error
 but throws an exception error message  
+
+5- How do breakpoints help in debugging Dart code?
+Breakpoints are markers set in code that pause execution at a specific line, allowing us to
+inspect variables, step through code, and analyze logic. They help identify issues without 
+modifying the code with print() statements.
+
+6- What is the difference between throw and print() in Dart?
+- throw is used to throw an exception and operate error handling in program.
+- print is used to display messages in the console, and it is primarilly used fo debugging and 
+giving output feddbacks.
