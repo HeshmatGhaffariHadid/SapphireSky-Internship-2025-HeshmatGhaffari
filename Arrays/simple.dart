@@ -1,9 +1,12 @@
+import 'dart:io';
+
 void main() {
   List<int> list = [1, 2, 3, 4, 5, 6, 2, 3, 4, 2, 7, 10];
   // print(findLargest(list));
   // print(sumOfElements(list));
   // print(checkElement(list, 4));
-  countOccurrence(list, 2);
+  // countOccurrence(list, 2);
+  // print('The smallest element in the array is: ${findSmallest(list)}');
 }
 
 //Write a function to find the largest element in an array.
@@ -42,3 +45,11 @@ void countOccurrence(List<int> list, int element) {
   print('The occurrence of $element is: $counter');
 }
 
+//Implement a function to find the smallest number in an array.
+int findSmallest(List <int> list) {
+  int smallest = list[0];
+  for(int i = 0; i < list.length; i++) {
+    if(list[i] < smallest) smallest = list[i];
+  }
+  return smallest;
+}
