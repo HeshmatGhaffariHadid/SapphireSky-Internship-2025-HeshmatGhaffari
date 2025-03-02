@@ -2,6 +2,7 @@ void main() {
   List<int> list = [1, 2, 3, 4, 5, 6, 7, 10];
   print(findLargest(list));
   print(sumOfElements(list));
+  print(checkElement(list, 4));
 }
 
 //Write a function to find the largest element in an array.
@@ -20,4 +21,13 @@ int sumOfElements(List<int> list) {
     sum += list[i];
   }
   return sum;
+}
+
+//How do you check if an array contains a specific element?
+bool checkElement(List<int> list, int element) {
+  bool check = false;
+  for(int i = 0; i< list.length; i++) {
+    if(list[i] == element) check = true;
+  }
+  return check;
 }
