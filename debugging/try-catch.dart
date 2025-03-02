@@ -1,6 +1,7 @@
 void main() {
   try {
-    checkAge(17);
+    int age = 17;
+    checkAge(age);
   } catch (exception) {
     print(exception);
   }
