@@ -9,3 +9,13 @@ Also there are logical, type, memory, assertion and stack overflow errors
 2- How can you debug a Dart program in VS Code or Android Studio?
 At the first we should install Dart and flutter extentions, second we should open a dart file and
 start debugging proccess, also we can use print statements to figure out the code outputs or errors.
+
+3- What is the use of print(), and how can it help in debugging?
+By running the print statement we can see the variable values or checking which part of the code 
+is runable for debugging.
+
+4- Explain the purpose of try...catch in Dart.
+We use try...catch to handle runtime exections that occures during the program execuation, when a
+program is running without try..catch blocks it crash when an error is found, but if you use try and
+catch blocks in the the program the program does not crash and continue to running even it face an error
+but throws an exception error message  
