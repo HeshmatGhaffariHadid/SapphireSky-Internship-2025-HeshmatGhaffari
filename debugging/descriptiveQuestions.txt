@@ -29,3 +29,16 @@ modifying the code with print() statements.
 - throw is used to throw an exception and operate error handling in program.
 - print is used to display messages in the console, and it is primarilly used fo debugging and 
 giving output feddbacks.
+
+8- How can the debugger() statement be used in Dart?
+In Dart, the debugger() statement is used to operate the debugger programmatically at a specific
+point in the code. When the Dart runtime reaches to the debugger() statement, it pauses execution, 
+allowing you to inspect the program's state, variables, and execution flow—just like you would 
+with a breakpoint set in the ide.
+
+9- What is a stack trace, and how can it help in debugging?
+A stack trace is a report that provides detailed information about the sequence of function calls
+that led to an error in a program, and it is happened when an exception is thrown.
+It can help in debugging by showing where the error occured, it shows the series of functions that
+where called and caused the error, it identifies the recursive and infinit loops and shows the 
+cause of error.
