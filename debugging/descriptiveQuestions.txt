@@ -1,1 +1,11 @@
-What are the different types of errors in Dart?
+1- What are the different types of errors in Dart?
+In Dart programming language we have tow types of erorrs in general:
+    - Runtime errors (Exceptions)
+      The error occures when the program is executing and caouse the program crash if it is not handled.
+    - Compile-time errors (Syntax Errors) 
+      The error occures when the code don't follow the programming language syntax, and prevent the progrma compilation
+Also there are logical, type, memory, assertion and stack overflow errors 
+
+2- How can you debug a Dart program in VS Code or Android Studio?
+At the first we should install Dart and flutter extentions, second we should open a dart file and
+start debugging proccess, also we can use print statements to figure out the code outputs or errors.
