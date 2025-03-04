@@ -1,7 +1,7 @@
 void main() {
-  List<int> list = [1, 2, 5, 3, 4, 6];
-  // print(rotateList(list, 4));
-  print(findSecondLargestElement(list));
+  List<int> list1 = [1, 2, 9, 5, 3, 4, 6];
+  List<int> list2 = [1, 3, 9, 7, 5];
+  print(findIntersectionOfArrays(list1, list2));
 }
 
 //Write a function to reverse an array without using the built-in reverse() method.
@@ -52,10 +52,22 @@ int findSecondLargestElement(List<int> list) {
         largest = list[i];
       }
     }
-    if(secondLargest <= list[i]){
-      if(list[i] < largest)
-      secondLargest = list[i];
+    if (secondLargest <= list[i]) {
+      if (list[i] < largest) secondLargest = list[i];
     }
   }
   return secondLargest;
+}
+
+//Implement a function that finds the intersection of two arrays.
+List<int> findIntersectionOfArrays(List<int> list1, List<int> list2) {
+  List<int> intersectionList = [];
+  for (int i = 0; i < list1.length; i++) {
+    for (int j = 0; j < list2.length; j++) {
+      if (list1[i] == list2[j]) {
+        intersectionList.add(list1[i]);
+      }
+    }
+  }
+  return intersectionList;
 }
