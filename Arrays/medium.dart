@@ -1,6 +1,7 @@
 void main() {
-  List<int> list = [1, 2, 3, 4, 5, 6];
-  print(rotateList(list, 4));
+  List<int> list = [1, 2, 5, 3, 4, 6];
+  // print(rotateList(list, 4));
+  print(findSecondLargestElement(list));
 }
 
 //Write a function to reverse an array without using the built-in reverse() method.
@@ -32,11 +33,29 @@ void reverseArray(List<int> list) {
 
 // Implement a function that rotates an array k times to the right.
 List<int> rotateList(List<int> list, int k) {
-  int lastElement = list.length -1;
+  int lastElement = list.length - 1;
   while (k > 0) {
     list.insert(0, list[lastElement]);
     list.removeLast();
     k--;
   }
   return list;
+}
+
+//Write a function to find the second largest number in an array.
+int findSecondLargestElement(List<int> list) {
+  int largest = 0;
+  int secondLargest = 0;
+  for (int i = 0; i < list.length; i++) {
+    for (int i = 0; i < list.length; i++) {
+      if (largest <= list[i]) {
+        largest = list[i];
+      }
+    }
+    if(secondLargest <= list[i]){
+      if(list[i] < largest)
+      secondLargest = list[i];
+    }
+  }
+  return secondLargest;
 }
