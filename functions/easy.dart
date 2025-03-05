@@ -16,13 +16,13 @@ void celsiusToFahrenheit(double celsius) {
 }
 
 //Find the Maximum of Three Numbers
-void maxOfThree(int a, int b, int c) {
+int maxOfThree(int a, int b, int c) {
   if (a > b && a > c) {
-    print('The maximum number is: $a');
+    return a;
   } else if (b > a && b > c) {
-    print('The maximum number is: $b');
+    return b;
   } else {
-    print('The maximum number is: $c');
+    return c;
   }
 }
 
