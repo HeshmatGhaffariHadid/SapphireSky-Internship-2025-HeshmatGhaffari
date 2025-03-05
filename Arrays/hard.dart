@@ -1,9 +1,10 @@
 void main() {
-  List<int> list = [1, -2, 3, -1, 5, 2, 3];
+  List<int> list = [1, 2, 4, 5, 6, 7, 9, 10];
   // List<int> list2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 14, 15];
   // // print('The missing number is: ${findMissingNum(list)}');
   // print(checkArraysEqualance(list1, list2));
-  print('Maximum sum subarray is: ${findMaxSubarraySum(list)}');
+  // print('Maximum sum subarray is: ${findMaxSubarraySum(list)}');
+  print(rearrangeArray(list));
 }
 
 // How do you remove duplicates from an array efficiently?
@@ -65,5 +66,18 @@ List<int> findMaxSubarraySum(List<int> list) {
       end = i;
     }
   }
-  return list.sublist(start, end +1);
+  return list.sublist(start, end + 1);
+}
+
+// Write a function to rearrange an array such that even numbers appear before odd numbers.
+List<int> rearrangeArray(List<int> list) {
+  List<int> arrangedList = [];
+  // [1,2,3,4]
+  for (int i = 0; i < list.length; i++) {
+    if (list[i] % 2 == 0) arrangedList.add(list[i]);
+  }
+  for (int i = 0; i < list.length; i++) {
+    if (list[i] % 2 != 0) arrangedList.add(list[i]);
+  }
+  return arrangedList;
 }
