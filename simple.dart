@@ -1,6 +1,7 @@
 void main() {
   // print(checkPalindrom('ahmad'));
-  print(countVowel('Ali Ahmaaad'));
+  // print(countVowel('Ali Ahmaaad'));
+  print(reverseString('Ahmad'));
 }
 
 //Write a function to check if a string is a palindrome.
@@ -25,4 +26,13 @@ int countVowel(String input) {
     }
   }
   return counter;
+}
+
+//Write a function to reverse a string.
+String reverseString (String input) {
+  String reversed = '';
+  for(int i= input.length-1; i>=0; i--) {
+    reversed += input[i];
+  }
+  return reversed;
 }
