@@ -1,7 +1,10 @@
+import 'dart:convert';
+
 void main() {
   // print(checkPalindrom('ahmad'));
   // print(countVowel('Ali Ahmaaad'));
-  print(reverseString('Ahmad'));
+  // print(reverseString('Ahmad'));
+  print(removeStringSpaces('ali ahmad'));
 }
 
 //Write a function to check if a string is a palindrome.
@@ -36,3 +39,15 @@ String reverseString (String input) {
   }
   return reversed;
 }
+
+// How do you remove spaces from a given string?
+String removeStringSpaces(String input) {
+  String result = '';
+  for(int i = 0; i< input.length; i++) {
+    if(input[i] != ' ') {
+      result += input[i];
+    }
+  }
+  return result;
+}
+
