@@ -1,5 +1,5 @@
 void main() {
-  print(compressString('hhheellloo'));
+print(isStringRotation('hello', 'loheli'));
 }
 
 //How can you find the first non-repeating character in a string?
@@ -44,3 +44,11 @@ String compressString(String input) {
   }
   return result;
 }
+
+// How do you check if one string is a rotation of another string?
+bool isStringRotation (String input, String rotate) {
+  input = input.toLowerCase();
+  String combination = input + input;
+  return combination.contains(rotate);
+}
+
