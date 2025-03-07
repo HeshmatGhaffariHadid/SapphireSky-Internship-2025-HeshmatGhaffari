@@ -1,5 +1,5 @@
 void main() {
-print(isStringRotation('hello', 'loheli'));
+print(hasUniqueChars('hello'));
 }
 
 //How can you find the first non-repeating character in a string?
@@ -50,5 +50,18 @@ bool isStringRotation (String input, String rotate) {
   input = input.toLowerCase();
   String combination = input + input;
   return combination.contains(rotate);
+}
+
+//Write a function to check if a string contains only unique characters.
+bool hasUniqueChars (String input) {
+  input = input.toLowerCase();
+  for (int i = 0; i <input.length; i++) {
+    int counter = 0;
+    for (int j =0; j< input.length; j++) {
+      if(input[i] == input[j]) counter++;
+    }
+    if(counter > 1) return false;
+  }
+  return true;
 }
 
