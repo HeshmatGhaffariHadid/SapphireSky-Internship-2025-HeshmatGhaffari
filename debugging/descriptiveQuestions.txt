@@ -1,0 +1,44 @@
+1- What are the different types of errors in Dart?
+In Dart programming language we have tow types of erorrs in general:
+    - Runtime errors (Exceptions)
+      The error occures when the program is executing and caouse the program crash if it is not handled.
+    - Compile-time errors (Syntax Errors) 
+      The error occures when the code don't follow the programming language syntax, and prevent the progrma compilation
+Also there are logical, type, memory, assertion and stack overflow errors 
+
+2- How can you debug a Dart program in VS Code or Android Studio?
+At the first we should install Dart and flutter extentions, second we should open a dart file and
+start debugging proccess, also we can use print statements to figure out the code outputs or errors.
+
+3- What is the use of print(), and how can it help in debugging?
+By running the print statement we can see the variable values or checking which part of the code 
+is runable for debugging.
+
+4- Explain the purpose of try...catch in Dart.
+We use try...catch to handle runtime exections that occures during the program execuation, when a
+program is running without try..catch blocks it crash when an error is found, but if you use try and
+catch blocks in the the program the program does not crash and continue to running even it face an error
+but throws an exception error message  
+
+5- How do breakpoints help in debugging Dart code?
+Breakpoints are markers set in code that pause execution at a specific line, allowing us to
+inspect variables, step through code, and analyze logic. They help identify issues without 
+modifying the code with print() statements.
+
+6- What is the difference between throw and print() in Dart?
+- throw is used to throw an exception and operate error handling in program.
+- print is used to display messages in the console, and it is primarilly used fo debugging and 
+giving output feddbacks.
+
+8- How can the debugger() statement be used in Dart?
+In Dart, the debugger() statement is used to operate the debugger programmatically at a specific
+point in the code. When the Dart runtime reaches to the debugger() statement, it pauses execution, 
+allowing you to inspect the program's state, variables, and execution flow—just like you would 
+with a breakpoint set in the ide.
+
+9- What is a stack trace, and how can it help in debugging?
+A stack trace is a report that provides detailed information about the sequence of function calls
+that led to an error in a program, and it is happened when an exception is thrown.
+It can help in debugging by showing where the error occured, it shows the series of functions that
+where called and caused the error, it identifies the recursive and infinit loops and shows the 
+cause of error.
