@@ -30,4 +30,24 @@ void main() {
 // }
 
 // Write a function to find all permutations of a given string.
+void permuteString(String str, int left, int right) {
+  if (left == right) {
+    print(str); // Print the permutation
+    return;
+  }
+
+  for (int i = left; i <= right; i++) {
+    str = swap(str, left, i); 
+    permuteString(str, left + 1, right);  
+    str = swap(str, left, i); 
+  }
+}
+
+String swap(String str, int i, int j) {
+  List<String> charArray = str.split('');
+  String temp = charArray[i];
+  charArray[i] = charArray[j];
+  charArray[j] = temp;
+  return charArray.join('');
+}
 
