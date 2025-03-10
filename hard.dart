@@ -1,35 +1,26 @@
 import 'dart:io';
 
 void main() {
-  countCharOccurrence('inuputpi');
+  print(printLongestPalindrome('hamadam'));
 }
 
 // Implement a function to find the longest palindrome substring in a string.
-// String longestPalindrome(String s) {
-//   if (s.isEmpty) return "";
-
-//   int start = 0, maxLength = 0;
-
-//   void expandAroundCenter(int left, int right) {
-//     while (left >= 0 && right < s.length && s[left] == s[right]) {
-//       left--;
-//       right++;
-//     }
-
-//     int length = right - left - 1;
-//     if (length > maxLength) {
-//       start = left + 1;
-//       maxLength = length;
-//     }
-//   }
-
-//   for (int i = 0; i < s.length; i++) {
-//     expandAroundCenter(i, i);
-//     expandAroundCenter(i, i + 1);
-//   }
-
-//   return s.substring(start, start + maxLength);
-// }
+String printLongestPalindrome(String str) {
+  List<String> input = str.split('');
+  List<String> current = [];
+  List<String> longestPalindrome = [];
+  
+  for (int i = 0; i<input.length; i++) {
+    for (int j = i; j< input.length; j++) {
+      if (i != j && input[i] == input[j]){
+        current = input.sublist(i, j+1);
+      } if (current.length > longestPalindrome.length && current.reversed.join() == current.join()){
+        longestPalindrome = current;
+      }
+    }
+  }
+  return longestPalindrome.join();
+}
 
 // Write a function to find all permutations of a given string.
 void permuteString(String input, int left, int right) {
@@ -37,7 +28,6 @@ void permuteString(String input, int left, int right) {
     print(input);
     return;
   }
-
   for (int i = left; i <= right; i++) {
     input = swap(input, left, i);
     permuteString(input, left + 1, right);
@@ -67,3 +57,6 @@ void countCharOccurrence(String input) {
   }
   print(results.toSet().join('\n'));
 }
+
+// How do you check if a string follows a given pattern (e.g., "abba" follows "dog cat cat dog")?
+
