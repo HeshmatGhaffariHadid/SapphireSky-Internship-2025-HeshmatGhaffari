@@ -82,3 +82,15 @@ bool followsPattern(String pattern, String input) {
   return true;
 }
 
+// Implement a function to convert a given sentence into its abbreviation ("I am learning JavaScript" → "I a l J").
+String printAbbreviation(String input) {
+  String result = input[0];
+
+  for (int i = 0; i < input.length; i++) {
+    if (input[i] == ' ' && i != input.length - 1) {
+      result += ' ' + input[i + 1];
+    }
+  }
+  return result;
+}
+
