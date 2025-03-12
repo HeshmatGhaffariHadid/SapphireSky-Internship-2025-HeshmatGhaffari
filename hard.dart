@@ -1,7 +1,6 @@
 import 'dart:io';
 
 void main() {
-  print(printLongestPalindrome('hamadam'));
 }
 
 // Implement a function to find the longest palindrome substring in a string.
@@ -58,5 +57,28 @@ void countCharOccurrence(String input) {
   print(results.toSet().join('\n'));
 }
 
-// How do you check if a string follows a given pattern (e.g., "abba" follows "dog cat cat dog")?
+// How do you check if a string follows a given pattern (e.g., "abba" follows "dog cat cat dog")? // AI Generated 
+bool followsPattern(String pattern, String input) {
+  List<String> words = input.split(' ');
+  if (pattern.length != words.length) return false;
+  
+  Map<String, String> charToWord = {};
+  Map<String, String> wordToChar = {};
+  for (int i = 0; i < pattern.length; i++) {
+    String char = pattern[i];
+    String word = words[i];
+    if (charToWord.containsKey(char)) {
+      if (charToWord[char] != word) {
+        return false; 
+      }
+    } else {
+      if (wordToChar.containsKey(word)) {
+        return false;
+      }
+      charToWord[char] = word;
+      wordToChar[word] = char;
+    }
+  }
+  return true;
+}
 
