@@ -1,15 +1,14 @@
 void main() {
   LinkedList list = LinkedList();
 
-  list.addFront(12);
-  list.addFront(11);
-  list.addFront(10);
+  list.addFront(1);
+  list.addFront(2);
+  list.addFront(3);
+  list.addFront(4);
+  list.addFront(5);
+  list.addFront(6);
 
-  list.deleteNode();
-  print(list.printLength());
-  list.deleteNode();
-  print(list.findLength());
-
+  print(list.findMiddleNode());
 }
 
 /* 1- What is a linked list, and how does it differ from an array?
@@ -55,7 +54,6 @@ class LinkedList {
   }
 
   // Implement a function to find the length of a linked list.
-
   //1- if we create a size variable and initialize it in add and delete node methods: (prefered)
   int printLength() => linkedListLength;
 
@@ -70,4 +68,16 @@ class LinkedList {
     return counter;
   }
 
+  // medium part
+  // Write a function to find the middle node of a linked list.
+  int findMiddleNode() {
+    if(firstNode == null) return 0;
+    Node? goEnd = firstNode;
+    Node? goMiddle = firstNode;
+    while (goEnd != null && goEnd.next != null) {
+      goMiddle = goMiddle!.next;
+      goEnd = goEnd.next!.next;
+    }
+    return goMiddle!.data;
+  }
 }
