@@ -4,11 +4,10 @@ void main() {
   list.addFront(1);
   list.addFront(2);
   list.addFront(3);
-  list.addFront(4);
-  list.addFront(5);
-  list.addFront(6);
 
-  print(list.findMiddleNode());
+print(list.printLinkedList());
+list.reverseList();
+print(list.printLinkedList());
 }
 
 /* 1- What is a linked list, and how does it differ from an array?
@@ -80,4 +79,18 @@ class LinkedList {
     }
     return goMiddle!.data;
   }
+  // Implement a function to reverse a linked list.
+  void reverseList(){
+    Node? newHead;
+    Node? current = firstNode;
+    Node? next;
+    while (current != null) {
+      next = current.next;
+      current.next = newHead;
+      newHead = current;
+      current = next;
+    }
+    firstNode = newHead;
+  }
+
 }
