@@ -93,4 +93,15 @@ class LinkedList {
     firstNode = newHead;
   }
 
+  // How do you detect a cycle in a linked list?
+  bool isCyclic(){
+    Node? fast = firstNode;
+    Node? slow = firstNode;
+    while(fast != null && fast.next != null) {
+      fast = fast.next!.next;
+      slow = slow!.next;
+      if(fast == slow) return true;
+    }
+    return false;
+  }
 }
