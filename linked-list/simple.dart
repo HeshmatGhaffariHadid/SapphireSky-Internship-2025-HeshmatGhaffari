@@ -1,13 +1,8 @@
 void main() {
-  LinkedList list1 = LinkedList();
-  list1.addFront(11);
-  list1.addFront(2);
-  list1.addFront(3);
-  LinkedList list2 = LinkedList();
-  list2.addFront(11);
-  list2.addFront(11);
-  list2.addFront(4);
-  print(list2.doIntersect(list1.head!, list2.head!));
+  Node node = Node(1, Node(2, Node(3, Node(4, Node(5)))));
+  node.next!.next = node.next!;
+  LinkedList list = LinkedList();
+  print(list.findCycleStartPoint(node));
 }
 
 /* 1- What is a linked list, and how does it differ from an array?
@@ -93,7 +88,7 @@ class LinkedList {
   }
 
   // How do you detect a cycle in a linked list?
-  bool isCyclic() {
+  bool isCyclic(Node head) {
     Node? fast = head;
     Node? slow = head;
     while (fast != null && fast.next != null) {
@@ -193,5 +188,27 @@ class LinkedList {
     }
     if (current1.data == current2.data) return true;
     return false;
+  }
+
+  // Write a function to find the starting point of a cycle in a linked list.
+  int findCycleStartPoint(Node head) {
+    Node? fast = head;
+    Node? slow = head;
+    bool isCyclic = false;
+    while (fast != null && fast.next != null) {
+      fast = fast.next!.next;
+      slow = slow!.next;
+      if (fast == slow) {
+        isCyclic = true;
+        break;
+      }
+    }
+    slow = head;
+    while (isCyclic) {
+      fast = fast!.next;
+      slow = slow!.next;
+      if (slow == fast) return slow!.data;
+    }
+    return -1;
   }
 }
