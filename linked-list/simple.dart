@@ -1,15 +1,13 @@
 void main() {
-  LinkedList list = LinkedList();
-
-  list.addFront(11);
-  list.addFront(13);
-  list.addFront(11);
-  list.addFront(47);
-  list.addFront(13);
-  list.displayList();
-  list.removeDuplicates();
-  print('');
-  list.displayList();
+  LinkedList list1 = LinkedList();
+  list1.addFront(11);
+  list1.addFront(2);
+  list1.addFront(3);
+  LinkedList list2 = LinkedList();
+  list2.addFront(11);
+  list2.addFront(11);
+  list2.addFront(4);
+  print(list2.doIntersect(list1.head!, list2.head!));
 }
 
 /* 1- What is a linked list, and how does it differ from an array?
@@ -19,7 +17,7 @@ contains data and a pointer to the next node in the list. */
 class Node {
   int data;
   Node? next;
-  Node(this.data);
+  Node(this.data, [this.next]);
 }
 
 class LinkedList {
@@ -181,5 +179,19 @@ class LinkedList {
         current = current.next;
       }
     }
+  }
+
+  // How do you check if two linked lists intersect?
+  bool doIntersect(Node head1, Node head2) {
+    Node? current1 = head1;
+    Node? current2 = head2;
+    while (current1!.next != null) {
+      current1 = current1.next;
+    }
+    while (current2!.next != null) {
+      current2 = current2.next;
+    }
+    if (current1.data == current2.data) return true;
+    return false;
   }
 }
