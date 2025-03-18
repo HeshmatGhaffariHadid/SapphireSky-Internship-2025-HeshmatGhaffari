@@ -2,11 +2,14 @@ void main() {
   LinkedList list = LinkedList();
 
   list.addFront(11);
-  list.addFront(43);
-  list.addFront(33);
+  list.addFront(13);
+  list.addFront(11);
   list.addFront(47);
-  print(list.printLinkedList());
-  print(list.findNthNode(3));
+  list.addFront(13);
+  list.displayList();
+  list.removeDuplicates();
+  print('');
+  list.displayList();
 }
 
 /* 1- What is a linked list, and how does it differ from an array?
@@ -41,14 +44,12 @@ class LinkedList {
   }
 
   // Write a function to traverse and print a linked list.
-  List<int> printLinkedList() {
-    List<int> dataList = [];
+  void displayList() {
     Node? currentData = head!;
     while (currentData != null) {
-      dataList.add(currentData.data);
+      print(currentData.data);
       currentData = currentData.next;
     }
-    return dataList;
   }
 
   // Implement a function to find the length of a linked list.
@@ -56,7 +57,7 @@ class LinkedList {
   int printLength() => size;
 
   //2- method itself go through the list and count the size
-  int findLength() {
+  int printSize() {
     int counter = 0;
     if (head == null) return 0;
     while (head != null) {
@@ -147,5 +148,38 @@ class LinkedList {
       secondPointer = secondPointer!.next;
     }
     return secondPointer!.data;
+  }
+
+  // hard part
+
+  // Implement a function to remove duplicates from a linked list.
+  void removeDuplicates() {
+    if (head == null) return;
+    //first approach not recommanded
+    // Node? current = head;
+    // while (current != null) {
+    //   Node? current2 = current;
+    //   while (current2!.next != null) {
+    //     if (current2.next!.data == current.data) {
+    //       current2.next = current2.next!.next;
+    //     } else {
+    //       current2 = current2.next;
+    //     }
+    //   }
+    //   current = current.next;
+    // }
+    // second approach (recommanded)
+    Set<int> uniques = {};
+    Node? current = head;
+    uniques.add(current!.data);
+
+    while (current!.next != null) {
+      if (uniques.contains(current.next!.data)) {
+        current.next = current.next!.next;
+      } else {
+        uniques.add(current.next!.data);
+        current = current.next;
+      }
+    }
   }
 }
