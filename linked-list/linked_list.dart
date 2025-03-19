@@ -1,13 +1,11 @@
 void main() {
-  LinkedList list = LinkedList();
-  list.addFront(1);
-  list.addFront(2);
-  list.addFront(3);
-  list.addFront(4);
-  list.addFront(5);
-  list.addFront(6);
-  list.groupOddEvenValues();
-  list.displayList();
+  LinkedList list1 = LinkedList();
+  list1.addFront(1);
+  list1.addFront(21);
+  LinkedList list2 = LinkedList();
+  list2.addFront(99);
+  LinkedList sum = LinkedList.sumLists(list1, list2);
+  sum.displayList();
 }
 
 /* 1- What is a linked list, and how does it differ from an array?
@@ -252,5 +250,28 @@ class LinkedList {
     if (evenTail != null) {
       evenTail.next = null;
     }
+  }
+
+  // Write a function to add two numbers represented as linked lists. (AI generated)
+  static LinkedList sumLists(LinkedList list1, LinkedList list2) {
+    LinkedList result = LinkedList();
+    Node? pointer1 = list1.head;
+    Node? pointer2 = list2.head;
+    int carry = 0;
+
+    while (pointer1 != null || pointer2 != null || carry > 0) {
+      int sum = carry;
+      if (pointer1 != null) {
+        sum += pointer1.data;
+        pointer1 = pointer1.next;
+      }
+      if (pointer2 != null) {
+        sum += pointer2.data;
+        pointer2 = pointer2.next;
+      }
+      carry = sum ~/ 10;
+      result.addFront(sum % 10);
+    }
+    return result;
   }
 }
