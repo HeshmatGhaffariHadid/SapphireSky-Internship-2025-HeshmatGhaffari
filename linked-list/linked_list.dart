@@ -1,8 +1,13 @@
 void main() {
-  Node node = Node(1, Node(2, Node(3, Node(4, Node(5)))));
-  node.next!.next = node.next!;
   LinkedList list = LinkedList();
-  print(list.findCycleStartPoint(node));
+  list.addFront(1);
+  list.addFront(2);
+  list.addFront(3);
+  list.addFront(4);
+  list.addFront(5);
+  list.addFront(6);
+  list.groupOddEvenValues();
+  list.displayList();
 }
 
 /* 1- What is a linked list, and how does it differ from an array?
@@ -210,5 +215,42 @@ class LinkedList {
       if (slow == fast) return slow!.data;
     }
     return -1;
+  }
+
+  // Implement a function to group even and odd nodes together in a linked list.
+  void groupOddEvenValues() {
+    if (head == null || head!.next == null) return;
+
+    Node? oddHead, oddTail, evenHead, evenTail;
+    Node? current = head;
+
+    while (current != null) {
+      if (current.data % 2 != 0) {
+        if (oddHead == null) {
+          oddHead = oddTail = current;
+        } else {
+          oddTail!.next = current;
+          oddTail = current;
+        }
+      } else {
+        if (evenHead == null) {
+          evenHead = evenTail = current;
+        } else {
+          evenTail!.next = current;
+          evenTail = current;
+        }
+      }
+      current = current.next;
+    }
+
+    if (oddTail != null) {
+      oddTail.next = evenHead;
+      head = oddHead;
+    } else {
+      head = evenHead;
+    }
+    if (evenTail != null) {
+      evenTail.next = null;
+    }
   }
 }
