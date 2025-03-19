@@ -73,3 +73,6 @@ class Stack {
     print(data);
   }
 }
+// 4- Explain the purpose of push() and pop() in a stack.
+// The push() method in a stack add a new object at the top of the stack, but the pop() method removes the top object
+// or the top node of the stack and places the top to the next node.
