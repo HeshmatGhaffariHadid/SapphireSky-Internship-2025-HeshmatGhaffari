@@ -3,7 +3,7 @@
 // that we have access to the top object of the stack.
 
 // Implement a stack using an array in JavaScript.
-class Stack {
+class StackArray {
   List<int> stack = [];
 
   void push(int data) {
@@ -26,5 +26,50 @@ class Stack {
 
   void printStack() {
     print(stack);
+  }
+}
+
+// How do you implement a stack using a linked list?
+class Node {
+  int? data;
+  Node? next;
+  Node(this.data, [this.next]);
+}
+
+class Stack {
+  Node? _top;
+  int size = 0;
+
+  void push(int data) {
+    Node newNode = Node(data);
+    if (_top == null) _top = newNode;
+    _top!.next = _top;
+    _top = newNode;
+    size++;
+  }
+
+  void pop() {
+    if (_top == null) return null;
+    _top = _top!.next;
+    size--;
+  }
+
+  int? peek() {
+    if (_top == null) return null;
+    return _top!.data;
+  }
+
+  bool get isEmpty => _top == null;
+
+  int get getSize => size;
+
+  void printStack() {
+    List<int> data = [];
+    Node? current = _top;
+    while (current != null) {
+      data.add(current.data!);
+      current = current.next;
+    }
+    print(data);
   }
 }
