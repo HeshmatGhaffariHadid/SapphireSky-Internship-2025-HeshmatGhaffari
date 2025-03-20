@@ -61,14 +61,14 @@ class Stack {
 
   int get getSize => size;
 
-  void printStack() {
+  List printStack() {
     List stack = [];
     Node? current = _top;
     while (current != null) {
       stack.add(current.data!);
       current = current.next;
     }
-    print(stack);
+    return stack;
   }
 
 // 4- Explain the purpose of push() and pop() in a stack.
@@ -92,9 +92,4 @@ class Stack {
     }
     return isEmpty;
   }
-}
-
-void main() {
-  Stack stack = Stack();
-  print(stack.isBalanced('{}({[]})[]'));
 }
