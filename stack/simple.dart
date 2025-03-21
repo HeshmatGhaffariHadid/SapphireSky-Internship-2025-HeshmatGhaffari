@@ -32,27 +32,29 @@
 // How do you implement a stack using a linked list?
 class Node<T> {
   T? data;
-  Node? next;
+  Node<T>? next;
   Node(this.data, [this.next]);
 }
 
-class Stack {
-  Node? _top;
+class Stack<T> {
+  Node<T>? _top;
   int size = 0;
 
-  void push(String data) {
-    Node newNode = Node(data);
+  void push(T data) {
+    Node<T> newNode = Node(data);
     newNode.next = _top;
     _top = newNode;
     size++;
   }
 
-  void pop() {
+  T? pop() {
+    T? data = _top!.data;
     _top = _top!.next;
     size--;
+    return data;
   }
 
-  String? peek() {
+  T? peek() {
     if (_top == null) return null;
     return _top!.data;
   }
@@ -61,9 +63,9 @@ class Stack {
 
   int get getSize => size;
 
-  List printStack() {
-    List stack = [];
-    Node? current = _top;
+  List<T> printStack() {
+    List<T> stack = [];
+    Node<T>? current = _top;
     while (current != null) {
       stack.add(current.data!);
       current = current.next;
@@ -77,9 +79,10 @@ class Stack {
 
 // Write a function to check if a given string has balanced parentheses.
   bool isBalanced(String input) {
+    Stack<String> stack = Stack<String>();
     for (int i = 0; i < input.length; i++) {
       if (input[i] == '{' || input[i] == '[' || input[i] == '(') {
-        push(input[i]);
+        stack.push(input[i]);
       } else {
         if (peek() == '(' && input[i] == ')' ||
             peek() == '{' && input[i] == '}' ||
