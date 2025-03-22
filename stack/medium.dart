@@ -60,4 +60,25 @@ class Medium {
         return -1;
     }
   }
+
+  // Implement a function to find the minimum element in a stack in constant time.
+  int getMin(List<int> elements) {
+    Stack<int> main = Stack<int>();
+    Stack<int> min = Stack<int>();
+    int repeat;
+    for (int i = 0; i < elements.length; i++) {
+      main.push(elements[i]);
+      if (min.isEmpty) {
+        min.push(elements[i]);
+      } else {
+        if (min.peek()! > elements[i]) {
+          min.push(elements[i]);
+        } else {
+          repeat = min.peek()!;
+          min.push(repeat);
+        }
+      }
+    }
+    return min.pop()!;
+  }
 }
