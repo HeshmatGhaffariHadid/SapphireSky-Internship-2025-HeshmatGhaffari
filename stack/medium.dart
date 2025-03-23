@@ -81,4 +81,21 @@ class Medium {
     }
     return min.pop()!;
   }
+
+  // Write a function to sort a stack using recursion.
+   void sortStack(Stack stack) {
+    if (stack.isEmpty) return;
+
+    int top = stack.pop();
+    sortStack(stack);
+
+    Stack tempStack = Stack();
+    while (!stack.isEmpty && stack.peek() > top) {
+      tempStack.push(stack.pop());
+    }
+    stack.push(top);
+    while (!tempStack.isEmpty) {
+      stack.push(tempStack.pop());
+    }
+  }
 }

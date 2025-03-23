@@ -1,6 +1,14 @@
 import 'medium.dart';
+import 'simple.dart';
 
 void main() {
   Medium medium = Medium();
-  print(medium.evaluatePostfix('3 4 + 4 2 * +'));
+  Stack stack = Stack();
+  stack.push(9);
+  stack.push(13);
+  stack.push(1);  
+  stack.push(-3);
+  print('Unsorted stack: ${stack.printStack()}');
+  medium.sortStack(stack);
+ print('Sorted stack: ${stack.printStack()}');
 }
