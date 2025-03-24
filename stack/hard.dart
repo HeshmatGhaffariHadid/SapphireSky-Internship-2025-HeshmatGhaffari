@@ -1,4 +1,5 @@
 import 'dart:collection';
+import 'dart:io';
 
 // How do you design a stack that supports push(), pop(), and getMin() in constant time?
 class Node<T> {
@@ -55,7 +56,7 @@ class Stack<T> {
     return min.pop()!;
   }
   // Implement an LRU (Least Recently Used) cache using a stack.
-  // I didn't have any idea in this concept
+  // I do not have any idea in this concept
 }
 
 // How do you implement a stack using only one queue?
@@ -127,7 +128,46 @@ bool isValidExpression(String input) {
 //   print(isValidExpression("(2+3)*5")); // true
 //   print(isValidExpression("2 + * 3")); // false
 //   print(isValidExpression("( 3 + 5 ) /")); // false
-//   print(isValidExpression("3+5)")); // false
+//   print(isValidExpression("3+5))"); // false
 //   print(isValidExpression("3 + 5 * 2")); // true
 //   print(isValidExpression("- 3 + 5")); // false
 // }
+
+// Implement a function to convert an infix expression to postfix notation.
+String convertInfixToPostfix(String inFix) {
+  // a+b*c+d
+  Stack stack = Stack();
+  String postFix = '';
+  for (int i = 0; i < inFix.length; i++) {
+    if (inFix[i] != '+' &&
+        inFix[i] != '-' &&
+        inFix[i] != '*' &&
+        inFix[i] != '/' &&
+        inFix[i] != '(' &&
+        inFix[i] != ')') {
+      postFix += inFix[i];
+    } else {
+      if (inFix[i] == ')') {
+        postFix += stack.pop();
+        stack.pop();
+      } else if (stack.isEmpty ||
+          inFix[i] == '(' ||
+          (stack.peek() != '*' && stack.peek() != '/')) {
+        stack.push(inFix[i]);
+      } else {
+        while (!stack.isEmpty) {
+          postFix += stack.pop();
+        }
+        stack.push(inFix[i]);
+      }
+    }
+  }
+  while (!stack.isEmpty) {
+    postFix += stack.pop();
+  }
+  stdout.write('Postfix notation of your input is: ');
+  return postFix;
+}
+void main() {
+  print(convertInfixToPostfix('a + b * c - d / e'));
+}
