@@ -84,7 +84,10 @@ class StackUsingQueue {
 
 // Write a function to check if a given arithmetic expression is valid.
 bool isValidExpression(String input) {
-  List expression = input.split(' ');
+  List<String> expression = RegExp(r'(\d+|\D)') // Helped by AI
+      .allMatches(input)
+      .map((match) => match.group(0)!)
+      .toList();
   Stack checkParen = Stack();
   Stack checkOrder = Stack();
   List<String> operators = ['+', '-', '*', '/', '.'];
@@ -119,12 +122,12 @@ bool isValidExpression(String input) {
   return true;
 }
 
-void main() {
-  print(isValidExpression('( 2.2 + 3 * ( 2 / 1 ) )')); // true
-  print(isValidExpression("( 2 + 3 ) * 5")); // true
-  print(isValidExpression("2 + * 3")); // false
-  print(isValidExpression("( 3 + 5 ) /")); // false
-  print(isValidExpression("3 + 5 )")); // false
-  print(isValidExpression("3 + 5 * 2")); // true
-  print(isValidExpression("- 3 + 5")); // false
-}
+// void main() {
+//   print(isValidExpression('( 2.2 + 3 * ( 2 / 1 ) )')); // true
+//   print(isValidExpression("(2+3)*5")); // true
+//   print(isValidExpression("2 + * 3")); // false
+//   print(isValidExpression("( 3 + 5 ) /")); // false
+//   print(isValidExpression("3+5)")); // false
+//   print(isValidExpression("3 + 5 * 2")); // true
+//   print(isValidExpression("- 3 + 5")); // false
+// }
