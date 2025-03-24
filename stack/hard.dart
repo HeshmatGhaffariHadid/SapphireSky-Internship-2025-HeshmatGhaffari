@@ -64,7 +64,7 @@ class StackUsingQueue {
 
   void push(int value) {
     queue.add(value);
-    for (int i = 0; i < queue.length -1; i++) {
+    for (int i = 0; i < queue.length - 1; i++) {
       int poped = queue.removeFirst();
       queue.add(poped);
     }
@@ -82,16 +82,49 @@ class StackUsingQueue {
   bool get isEmpty => queue.isEmpty;
 }
 
+// Write a function to check if a given arithmetic expression is valid.
+bool isValidExpression(String input) {
+  List expression = input.split(' ');
+  Stack checkParen = Stack();
+  Stack checkOrder = Stack();
+  List<String> operators = ['+', '-', '*', '/', '.'];
+  // check parentheses order
+  for (String element in expression) {
+    if (element == '(') {
+      checkParen.push(element);
+    } else if (element == ')') {
+      if (!checkParen.isEmpty) {
+        checkParen.pop();
+      } else {
+        return false;
+      }
+    }
+  }
+  if (!checkParen.isEmpty) return false;
+
+  // check expression edges
+  if (operators.contains(expression.first) ||
+      operators.contains(expression.last)) {
+    return false;
+  }
+  // check operators' order
+  checkOrder.push(expression[0]);
+  for (int i = 1; i < expression.length; i++) {
+    if (operators.contains(expression[i]) &&
+        operators.contains(checkOrder.peek())) {
+      return false;
+    }
+    checkOrder.push(expression[i]);
+  }
+  return true;
+}
+
 void main() {
-  StackUsingQueue stackUsingQueue = StackUsingQueue();
-  print(stackUsingQueue.isEmpty);
-  stackUsingQueue.push(12);
-  stackUsingQueue.push(13);
-  stackUsingQueue.push(14);
-  stackUsingQueue.push(15);
-  stackUsingQueue.push(10);
-  print(stackUsingQueue.top());
-  stackUsingQueue.pop();
-  print(stackUsingQueue.top());
-  print(stackUsingQueue.isEmpty);
+  print(isValidExpression('( 2.2 + 3 * ( 2 / 1 ) )')); // true
+  print(isValidExpression("( 2 + 3 ) * 5")); // true
+  print(isValidExpression("2 + * 3")); // false
+  print(isValidExpression("( 3 + 5 ) /")); // false
+  print(isValidExpression("3 + 5 )")); // false
+  print(isValidExpression("3 + 5 * 2")); // true
+  print(isValidExpression("- 3 + 5")); // false
 }
