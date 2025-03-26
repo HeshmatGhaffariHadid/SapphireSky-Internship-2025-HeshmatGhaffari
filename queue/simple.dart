@@ -4,8 +4,6 @@
 // (processed or popped) from the queue, therefore Queue is like a line of a bakery.
 
 // 2- Implement a queue using an array in Dart.
-import 'dart:io';
-
 class QueueList<T> {
   List<T> list = [];
 
@@ -128,8 +126,13 @@ class Queue<T> {
 //   print('Queue is empty: ${queue.isEmpty}');
 // }
 
-// What is the difference between a queue and a stack?
+// 4- What is the difference between a queue and a stack?
 // answer: Both Stack and Queue are linear data structures, but the main difference is in 
 // their arrangement of data. Stack follows a Last In First Out (LIFO) arrangement, 
 // meaning the last inserted data is processed first. On the other hand, Queue follows a First In, 
 // First Out (FIFO) arrangement, meaning the first inserted data is processed first. 
+
+// 5- Write a function to check if a queue is empty. The function is in the Queue class 
+// bool get isEmpty => front == null;     (first solution)
+// bool get isEmpty => size == 0 ? true : false;   (second solution)
+
