@@ -127,3 +127,9 @@ class Queue<T> {
 //   print('Queue size: ${queue.size}');
 //   print('Queue is empty: ${queue.isEmpty}');
 // }
+
+// What is the difference between a queue and a stack?
+// answer: Both Stack and Queue are linear data structures, but the main difference is in 
+// their arrangement of data. Stack follows a Last In First Out (LIFO) arrangement, 
+// meaning the last inserted data is processed first. On the other hand, Queue follows a First In, 
+// First Out (FIFO) arrangement, meaning the first inserted data is processed first. 
