@@ -1,19 +1,18 @@
-import 'dart:io';
-
-void main() {
-}
+void main() {}
 
 // Implement a function to find the longest palindrome substring in a string.
 String printLongestPalindrome(String str) {
   List<String> input = str.split('');
   List<String> current = [];
   List<String> longestPalindrome = [];
-  
-  for (int i = 0; i<input.length; i++) {
-    for (int j = i; j< input.length; j++) {
-      if (i != j && input[i] == input[j]){
-        current = input.sublist(i, j+1);
-      } if (current.length > longestPalindrome.length && current.reversed.join() == current.join()){
+
+  for (int i = 0; i < input.length; i++) {
+    for (int j = i; j < input.length; j++) {
+      if (i != j && input[i] == input[j]) {
+        current = input.sublist(i, j + 1);
+      }
+      if (current.length > longestPalindrome.length &&
+          current.reversed.join() == current.join()) {
         longestPalindrome = current;
       }
     }
@@ -43,25 +42,39 @@ String swap(String input, int i, int j) {
 }
 
 // Implement a function to count the number of occurrences of each character in a string.
-void countCharOccurrence(String input) {
-  List<String> results = [];
-  for (int i = 0; i < input.length; i++) {
-    int counter = 0;
-    for (int j = 0; j < input.length; j++) {
-      if (input[i] == input[j]) {
-        counter++;
-      }
+// void countCharOccurrence(String input) {
+//   List<String> results = [];
+//   for (int i = 0; i < input.length; i++) {
+//     int counter = 0;
+//     for (int j = 0; j < input.length; j++) {
+//       if (input[i] == input[j]) {
+//         counter++;
+//       }
+//     }
+//     results.add('${input[i]} = $counter ');
+//   }
+//   print(results.toSet().join('\n'));
+// }
+
+Map<String, int> countCharOccurrence(String input) {
+  input = input.toLowerCase();
+  Map<String, int> result = {};
+
+  for (var char in input.split('')) {
+    if (result.containsKey(char)) {
+      result[char] = result[char]! + 1;
+    } else {
+      result[char] = 1;
     }
-    results.add('${input[i]} = $counter ');
   }
-  print(results.toSet().join('\n'));
+  return result;
 }
 
-// How do you check if a string follows a given pattern (e.g., "abba" follows "dog cat cat dog")? // AI Generated 
+// How do you check if a string follows a given pattern (e.g., "abba" follows "dog cat cat dog")? // AI Generated
 bool followsPattern(String pattern, String input) {
   List<String> words = input.split(' ');
   if (pattern.length != words.length) return false;
-  
+
   Map<String, String> charToWord = {};
   Map<String, String> wordToChar = {};
   for (int i = 0; i < pattern.length; i++) {
@@ -69,7 +82,7 @@ bool followsPattern(String pattern, String input) {
     String word = words[i];
     if (charToWord.containsKey(char)) {
       if (charToWord[char] != word) {
-        return false; 
+        return false;
       }
     } else {
       if (wordToChar.containsKey(word)) {
@@ -93,4 +106,3 @@ String printAbbreviation(String input) {
   }
   return result;
 }
-
