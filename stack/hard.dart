@@ -41,12 +41,12 @@ class Stack<T> {
     Stack min = Stack();
     int repeat;
     for (int i = 0; i < stack.size; i++) {
-      main.push(stack.peek());
+      main.push(stack.pop());
       if (min.isEmpty) {
-        min.push(stack.peek());
+        min.push(stack.pop());
       } else {
         if (min.peek()! > stack.peek()) {
-          min.push(stack.peek());
+          min.push(stack.pop());
         } else {
           repeat = min.peek()!;
           min.push(repeat);
