@@ -138,9 +138,39 @@ class CircularQueue<T> {
     do {
       print(current!.data);
       current = current.next;
-    } while (current != front); // it stops when reaches the front again and avoid imfinte loop 
+    } while (current !=
+        front); // it stops when reaches the front again and avoid imfinte loop
   }
 }
 // How it works: A circular queue is a data structure that follows the FIFO (First-In-First-Out)
 // principle but with a circular manner, it means that the last position of the queue is attached
 // to the first position when it is full, and elements are dequeued in a cyclic manner.
+
+// Implement a function to merge two queues in an alternating manner.
+void mergeQueues(Queue q1, Queue q2, Queue mergedQueue) {
+  if (q1.isEmpty && q2.isEmpty) {
+    print('Queues are empty!');
+    return;
+  }
+  while (!q1.isEmpty || !q2.isEmpty) {
+    if (!q1.isEmpty) {
+      mergedQueue.enqueue(q1.dequeue());
+    }
+    if (!q2.isEmpty) {
+      mergedQueue.enqueue(q2.dequeue());
+    }
+  }
+}
+
+void main() {
+  Queue q1 = Queue();
+  Queue q2 = Queue();
+  Queue mergedQueue = Queue();
+
+  q1.enqueue(1);
+  q2.enqueue(2);
+  q1.enqueue(3);
+  q2.enqueue(4);
+  mergeQueues(q1, q2, mergedQueue);
+  mergedQueue.display();
+}
